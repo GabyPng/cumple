@@ -1,0 +1,137 @@
+.decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: fall linear forwards;
+}
+
+.star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #FFE5EE 30%, transparent 70%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.7;
+  animation: twinkle infinite;
+}
+
+.pearl {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #FFF 20%, #FFB6C1 60%, #FF69B4 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+.sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #FFF 20%, #FFD700 60%, transparent 100%);
+  transform: rotate(45deg);
+  animation: sparkle-fade 1s ease-out forwards;
+}
+
+.butterfly {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: 
+    radial-gradient(circle at 50% 50%, transparent 35%, #FF69B4 36%, transparent 100%) 0 0 / 15px 15px,
+    radial-gradient(circle at 50% 50%, transparent 35%, #FF69B4 36%, transparent 100%) 15px 0 / 15px 15px;
+  animation: fly linear forwards;
+  filter: hue-rotate(0deg);
+  animation-name: fly, rainbow;
+  animation-duration: 6s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: 
+    radial-gradient(circle at 50% 50%, #FF1493 50%, transparent 51%) 0 0 / 10px 10px,
+    radial-gradient(circle at 50% 50%, #FF1493 50%, transparent 51%) 10px 0 / 10px 10px;
+  transform-origin: bottom;
+  animation: float-heart forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes sparkle-fade {
+  0% {
+    transform: scale(0) rotate(45deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) rotate(45deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fly {
+  from {
+    transform: translate(-50px, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(calc(100vw + 50px), -100px) rotate(10deg) scale(0.8);
+  }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes float-heart {
+  0% {
+    transform: translateY(100vh) scale(1) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(-20px) scale(0) rotate(-45deg);
+  }
+}
