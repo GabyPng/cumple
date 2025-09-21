@@ -1,5 +1,6 @@
 .birthday-card {
   min-height: 100vh;
+  min-width: 100vw;
   background: linear-gradient(135deg, #FFE5EE 0%, #FFC0CB 50%, #FFB6C1 100%);
   display: flex;
   flex-direction: column;
@@ -8,6 +9,19 @@
   position: relative;
   overflow: hidden;
   animation: backgroundShimmer 10s infinite linear;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFE5EE;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  background: #FFE5EE;
 }
 
 @keyframes backgroundShimmer {
