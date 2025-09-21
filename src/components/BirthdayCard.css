@@ -1,12 +1,36 @@
 .birthday-card {
   min-height: 100vh;
-  background: linear-gradient(135deg, #FFE5EE 0%, #FFB6C1 100%);
+  background: linear-gradient(135deg, #FFE5EE 0%, #FFC0CB 50%, #FFB6C1 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   position: relative;
   overflow: hidden;
+  animation: backgroundShimmer 10s infinite linear;
+}
+
+@keyframes backgroundShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.birthday-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .controls {
